@@ -1,1 +1,840 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /*overflow-x: hidden;*/
+  -webkit-tap-highlight-color: #fff;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: PingFangSC-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  font-size: 0.14rem;
+  color: #4a4a4a;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 100%;
+}
+
+ol, ul, li {
+  list-style: none
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td {
+  padding: 0
+}
+
+textarea {
+  resize: vertical
+}
+
+:focus {
+  outline: none
+}
+/* 此处只是去掉默认的小× */
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+em, i {
+  font-weight: normal;
+  font-style: normal;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none
+}
+
+input, select, textarea, button {
+  font-size: .12rem;
+  padding: 0
+}
+
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ccc
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #ccc
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #ccc
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #ccc
+}
+
+::-ms-clear, ::-ms-reveal {
+  display: none
+}
+
+::-webkit-input-placeholder {
+  color: #ccc
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-radius: 0
+}
+
+button:focus {
+  outline: 0
+}
+
+img {
+  border: 0 none;
+  max-width: 100%;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+  outline: 0
+}
+
+a:focus {
+  outline: dotted thin;
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-offset: -2px
+}
+
+/*清除浮动*/
+.clear:after,
+.clear:before {
+  content: " ";
+  display: table
+}
+
+.clear:after {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.active {
+  color: #ed6c00;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.color-gray {
+  color: #959595;
+}
+
+.container,
+.calc-list {
+  width: calc(100% + 0.2rem);
+  height: calc(100% - 0.42rem);
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.container {
+  padding-right: 0.2rem;
+}
+
+.container-visible {
+  overflow: visible;
+}
+
+.container::-webkit-scrollbar,
+.calc-list::-webkit-scrollbar {
+  display: none;
+}
+
+.container .tit-top {
+  overflow: hidden;
+  font-size: 0.12rem;
+  color: #909090;
+  line-height: 0.44rem;
+  padding-right: 0.1rem;
+}
+
+.container .calc-condition {
+  padding-top: 0.12rem;
+  padding-left: 0.12rem;
+  background-color: #fff;
+}
+
+.container .calc-condition ul.cell-list li.cell {
+  padding-top: 0.06rem;
+  padding-bottom: 0.06rem;
+  padding-right: 0.12rem;
+  height: 0.42rem;
+  line-height: 0.28rem;
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.calc-btn {
+  text-align: center;
+  padding-top: 0.2rem;
+  padding-bottom: 0.12rem;
+  background-color: #fff;
+}
+
+.calc-btn.canot-clac button.calc {
+  background-color: #c5c5c5;
+  border: 1px solid #c5c5c5;
+  /*pointer-events: none;*/
+}
+
+.calc-btn button {
+  height: 0.32rem;
+  /* line-height: 0.3rem; */
+  width: 36%;
+  border-radius: 0.16rem;
+  border: none;
+  margin: 0.12rem;
+}
+
+.calc-btn button.calc {
+  background-color: #ed6c00;
+  border: 1px solid #ed6c00;
+  color: #fff;
+}
+
+.calc-btn.can-clac button.calc:active {
+  background-color: #ce5501;
+  border: 1px solid #ce5501;
+}
+
+.calc-btn button.reset {
+  border: 1px solid #e9e9e9;
+  color: #666;
+  background: transparent;
+}
+
+.calc-btn button.reset:active {
+  background-color: #fafafa;
+}
+
+ul.result-list li.result-one {
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+ul.result-list li.result-one:last-child {
+  border-bottom: none;
+}
+
+.calc-result {
+  margin-top: 0.1rem;
+  padding-left: 0.12rem;
+  padding-bottom: 0.2rem;
+}
+
+.calc-result .gray-block {
+  width: calc(100% + 0.12rem);
+  height: 0.12rem;
+  background-color: #f7f7f7;
+  margin-left: -0.12rem;
+}
+
+.card-result-wrap .gray-block {
+  width: calc(100% + 0.24rem);
+}
+
+.calc-result, .share-result {
+  background-color: #fff;
+  font-size: 0.12rem;
+}
+
+.share-result .card-result {
+  line-height: 0.4rem;
+}
+
+.card-result-wrap {
+  margin-top: 0.1rem;
+  background-color: #fff;
+  line-height: 0.4rem;
+  font-size: 0.12rem;
+  padding-right: 0.12rem;
+  padding-left: 0.12rem;
+}
+
+.card-result-wrap .card-result {
+  border-radius: 4px;
+  margin-top: 0.54rem;
+  border: 1px solid #ececec;
+}
+
+.card-result .tit-top {
+  background-color: #fafafa;
+  line-height: 0.36rem;
+  padding-right: 0.12rem;
+  padding-left: 0.12rem;
+}
+
+.card-result .result-list {
+  line-height: 0.56rem;
+  padding-left: 0.12rem;
+  font-size: 0.14rem;
+}
+
+.date-result {
+  line-height: 0.34rem;
+  padding-right: 0.1rem;
+}
+
+.date-result .result-one {
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.date-result .result-one:last-child {
+  border-bottom: none;
+}
+
+ul.result-list li.result-one {
+  padding: 0.1rem 0.1rem 0.1rem 0;
+}
+
+ul.result-list li.result-one.total .result-value {
+  text-align: right;
+}
+
+ul.result-list li.result-one.total .result-value .result {
+  float: none;
+}
+
+ul.result-list li.result-one.total .result-value .label-tit {
+  font-size: 12px;
+  color: #999;
+}
+
+ul.result-list li.result-one.total .result-value .result span{
+  font-size: 0.16rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+ul.result-list li.result-one .result-value {
+  line-height: 0.2rem;
+  overflow: hidden;
+  font-size: 0.13rem;
+}
+
+ul.result-list li.result-one .result-value .result span {
+  font-family: 'PingFangSC-Regular';
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+ul.result-list li.result-one .result {
+  display: inline-block;
+  float: right;
+}
+
+ul.result-list li.result-one .formula {
+  color: #999;
+  line-height: 0.18rem;
+  font-size: 0.11rem;
+  text-align: left;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.result-pd-left {
+  padding-left: 0.2rem;
+}
+
+ul.result-list .child-result {
+  padding-left: 0.6rem!important;
+  width: calc(100% + 0.4rem);
+  margin-left: -0.4rem;
+  background-color: #fafafa;
+}
+
+ul.result-list .result-one.child-result,
+ul.result-list .result-one.pos-rel {
+  border-bottom: none!important;
+}
+
+ul.result-list li .border-line {
+  position: absolute;
+  border-bottom-left-radius: 8px;
+  width: 10px;
+  height: 84%;
+  left: 0.06rem;
+  z-index: 1;
+  bottom: -0.2rem;
+  border-left: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+ul.result-list .result-one.w-result .border-line {
+  left: 0.46rem;
+}
+
+ul.result-list li.child-result .border-line:first-child {
+  height: calc(100% + 10px);
+}
+
+.explain {
+  color: #999;
+  line-height: 0.18rem;
+  margin-top: 0.4rem;
+  font-size: 12px;
+}
+
+/* 分享图片的样式 begin */
+#share-container {
+  position: fixed;
+  left: -140%;
+  width: 377px;
+  font-size: 14px;
+  background-color: #f7f7f7;
+}
+
+#share-container .condition {
+  line-height: 28px;
+  padding: 30px 26px 12px;
+  background-color: #fff;
+}
+
+#share-container .condition .cell-list {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+#share-container .condition .cell-list .cell {
+  overflow: hidden;
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+#share-container .condition .cell-list .cell .label {
+  width: 112px;
+  color: #999;
+  float: left;
+  margin-right: 10px;
+}
+
+#share-container .condition .cell-list .cell .label-right {
+  padding-left: 114px;
+}
+
+#share-container .share-result {
+  padding-left: 30px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.share-result .date-result .result-one {
+  padding-right: 20px;
+}
+
+#share-container .share-result li.result-one {
+  padding: 10px 26px 10px 0;
+}
+
+#share-container ul.result-list li.result-one .result-value {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+#share-container ul.result-list li.result-one .formula {
+  line-height: 18px;
+  font-size: 12px;
+  text-align: left;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+#share-container ul.result-list li .border-line {
+  left: 6px;
+}
+
+#share-container ul.result-list .result-one.w-result .border-line {
+  left: 46px;
+}
+
+#share-container .share-result {
+  font-size: 12px;
+}
+
+#share-container .tit-top{
+  font-size: 14px;
+}
+
+#share-container .date-result {
+  line-height: 34px;
+  padding-right: 10px;
+}
+
+#share-container .share-result .card-result{
+  line-height: 40px;
+}
+
+
+#share-container ul.result-list .child-result {
+  padding-left: 60px!important;
+  width: calc(100% + 40px);
+  margin-left: -40px;
+}
+
+.support {
+  line-height: 54px;
+  color: #999;
+  font-size: 12px;
+  margin-right: 26px;
+}
+
+.alpha-icon {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  left: -4px;
+}
+
+/* 分享图片的样式 end */
+
+#copy-result {
+  position: fixed;
+  left: -140%;
+  width: 100%;
+}
+
+.calc-process {
+  margin-bottom: 0.12rem;
+  padding-right: 0.1rem;
+}
+
+.calc-process .tit {
+  margin-bottom: 0.08rem;
+  background-color: #fff;
+  border-radius: 4px;
+  line-height: 0.32rem;
+  color: #000;
+  font-weight: 600;
+  font-size: 0.14rem;
+}
+
+.calc-process ul {
+  background-color: #fff;
+  border-radius: 4px;
+  line-height: 0.16rem;
+  color: #666;
+  padding-bottom: 0.12rem;
+}
+
+.calc-process ul .li-bg-gray {
+  margin-top: 0.14rem;
+  margin-bottom: 0.06rem;
+  background-color: #f8f8f8;
+  color: #4a4a4a;
+  line-height: 0.2rem;
+}
+
+/* 蒙层样式 begin */
+.mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.3);
+  z-index: 999;
+}
+
+/* 蒙层样式 end */
+
+/* switch按钮 begin */
+.switch {
+  width: 0.4rem;
+  height: 0.2rem;
+  position: relative;
+  border: 1px solid #dfdfdf;
+  background-color: #fdfdfd;
+  box-shadow: #dfdfdf 0 0 0 0 inset;
+  border-radius: 0.1rem;
+  background-clip: content-box;
+  display: inline-block;
+  -webkit-appearance: none;
+  user-select: none;
+  outline: none;
+}
+
+.switch.switch-anim {
+  transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+}
+
+.switch:before {
+  content: '';
+  width: 0.18rem;
+  height: 0.18rem;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  border-radius: 0.1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.switch.switch-anim:before {
+  transition: left 0.3s;
+}
+
+.switch.switch-anim:checked {
+  box-shadow: #fa8919 0 0 0 16px inset;
+  background-color: #fa8919;
+  transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+}
+
+.switch:checked:before {
+  left: 21px;
+}
+
+.switch.switch-anim:checked:before {
+  transition: left 0.3s;
+}
+
+/* switch按钮 end */
+
+.detail-wrap .detail p {
+  color: #b9b9b9;
+  margin-bottom: 4px;
+  line-height: 0.18rem;
+}
+
+.detail-wrap .detail b {
+  color: #fff;
+  font-weight: 600;
+}
+
+.detail-wrap .detail h1 {
+  font-size: 0.2rem;
+  text-align: center;
+  line-height: 0.4rem;
+  color: #fff;
+}
+
+.detail-wrap .detail h2 {
+  font-size: 0.14rem;
+  margin-top: 6px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.detail-wrap .detail h3 {
+  font-size: 0.14rem;
+  line-height: 0.3rem;
+  color: #fff;
+}
+
+.detail-wrap table {
+  width: 100%;
+}
+
+.detail-wrap table th,
+.detail-wrap table td {
+  border: 1px solid #666;
+}
+
+.alert-page-view {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 0.42rem;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9;
+  overflow-y: scroll;
+}
+
+.alert-page-view .alert-calculator-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.alert-calculator-top {
+  width: 100%;
+  height: 0.42rem;
+  line-height: 0.42rem;
+  text-align: center;
+  padding-left: 0.06rem;
+  padding-right: 0.06rem;
+  border-bottom: 1px solid rgba(238, 238, 238, 1);
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 0.1rem;
+}
+
+.alert-calculator-top span {
+  font-size: 0.16rem;
+  color: #000000;
+}
+
+.alert-calculator-top i {
+  font-size: 0.2rem;
+  color: #fa8919;
+  position: absolute;
+  top: 0;
+  left: 0.12rem;
+}
+
+.view-detail {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.view-detail .view-btn {
+  display: inline-block;
+  padding: 0 0.34rem;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+  line-height: 0.32rem;
+  color: #666;
+}
+
+/* iPhone样式 */
+.iPhone .i-radio li {
+  line-height: 0.22rem!important;
+}
+
+.condition-error .input-container .label {
+  color: #f22d2d!important;
+}
+
+.condition-error .input-container .blur .normal {
+  display: inline-block!important;
+}
+
+.condition-error date-picker input::-webkit-input-placeholder{
+  color: red;
+}
+.condition-error date-picker input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color: red;
+}
+.condition-error date-picker input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color: red;
+}
+.condition-error date-picker input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+@-webkit-keyframes slideUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+}
+
+@keyframes slideUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+}
+
+.animate-slide-up {
+  -webkit-animation: .3s forwards slideUp;
+  animation: .3s forwards slideUp
+}
+
+@-webkit-keyframes slideDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+}
+
+@keyframes slideDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+}
+
+.animate-slide-down {
+  -webkit-animation: .3s forwards slideDown;
+  animation: .3s forwards slideDown
+}
