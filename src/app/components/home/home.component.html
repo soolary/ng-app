@@ -1,1 +1,54 @@
-<p>home works!</p>
+<div>
+  <img *ngIf="!flag" src="assets/images/02.png" />
+  <img *ngIf="flag" src="assets/images/01.png" />
+</div>
+<ul>
+  <li *ngFor="let item of list;let key=index;">
+    <span (click)="run($event)" [class]="{'red':key!=1}"
+      >{{key}}---{{item.title}}</span
+    >
+  </li>
+</ul>
+<span [ngSwitch]="orderStatus">
+  <p *ngSwitchCase="1">
+    表示已经支付
+  </p>
+  <p *ngSwitchCase="2">
+    支付并且确认订单
+  </p>
+  <p *ngSwitchCase="3">
+    表示已经发货
+  </p>
+  <p *ngSwitchCase="4">
+    表示已经收货
+  </p>
+  <p *ngSwitchDefault>
+    无效订单
+  </p>
+</span>
+<div [ngClass]="{'blue':true,'red':false}">
+  ngClass演示
+</div>
+<div [ngClass]="{'orange':flag,'red':!flag}">
+  ngClass演示
+</div>
+<ul>
+  <li
+    *ngFor="let item of list;let key=index;"
+    [ngClass]="{'red':key==0,'orange':key==1,'blue':key==2}"
+  >
+    {{key}}---{{item.title}}
+  </li>
+</ul>
+{{today | date:'yyyy-MM-dd HH:mm ss'}}
+
+<h1>表单事件 事件对象</h1>
+keyDown
+<input type="text" (keydown)="keyDown($event)" />
+<br />
+keyUp:
+<input type="text" (keyup)="keyUp($event)" />
+<input type="text" [(ngModel)]='keywords' />
+{{keywords}}
+<button (click)="changeKeywords()">改变keywords的值</button>
+<button (click)="getKeywords()">获取keywords的值</button>
