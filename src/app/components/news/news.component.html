@@ -1,0 +1,17 @@
+<app-header></app-header>
+<h4 [title]="msg">{{title}}</h4>
+<ul>
+  <li *ngFor="let item of userlist;let i=index">{{item.username}}--{{item.age}}</li>
+</ul>
+<!-- <ul>
+  <li template="ngFor let item of list">{{item}}</li>
+</ul> -->
+<ul>
+  <li *ngFor="let pinpai of cars">
+    <div>{{pinpai.cate}}</div>
+    <ul>
+      <li *ngFor="let item of pinpai.list">{{
+        item.title}}售价{{item.price}}</li>
+    </ul>
+  </li>
+</ul>
